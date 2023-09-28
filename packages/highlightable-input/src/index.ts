@@ -70,6 +70,7 @@ export function setup(
   let multiLine = false
   let disabled = false
   let readOnly = false
+  let editable = false
 
   let composing = false
   let selectionChanged = false
@@ -114,13 +115,14 @@ export function setup(
     multiLine = el.getAttribute('aria-multiline') === 'true'
     disabled = el.getAttribute('aria-disabled') === 'true'
     readOnly = el.getAttribute('aria-readonly') === 'true'
+    editable = el.getAttribute('aria-editable') === 'true'
 
     text = html = ''
 
     updateHTML(false, defaultValue)
 
-    // only editable on focus or hover
-    setContentEditable(el, false)
+    // only editable on focus or hover or by default
+    setContentEditable(el, editable)
 
     setFocusable(el, !disabled)
 

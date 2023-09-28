@@ -23,6 +23,7 @@ type HighlightableInputProps = {
   disabled?: boolean
   theme?: string
   highlight: SetupOptions['highlight']
+  editable?: boolean
   patch?: SetupOptions['patch']
   onChange?: (text: string) => void
 } & Omit<HTMLAttributes<HTMLElement>, 'onChange'>
@@ -36,6 +37,7 @@ const Component = (props: HighlightableInputProps) => {
     disabled,
     theme,
     highlight,
+    editable,
     patch,
     onChange,
     ...restProps
@@ -102,6 +104,7 @@ const Component = (props: HighlightableInputProps) => {
       aria-multiline={props.multiline || null}
       aria-readonly={props.readonly || null}
       aria-disabled={props.disabled || null}
+      aria-editable={props.editable || null}
       data-theme={props.theme || null}
       {...restProps}
     />

@@ -18,6 +18,7 @@ export default defineComponent({
     multiline: Boolean,
     readonly: Boolean,
     disabled: Boolean,
+    editable: Boolean,
     theme: String,
     highlight: {
       type: Object as PropType<SetupOptions['highlight']>,
@@ -92,6 +93,7 @@ export default defineComponent({
         'aria-multiline': props.multiline || null,
         'aria-readonly': props.readonly || null,
         'aria-disabled': props.disabled || null,
+        'aria-editable': props.editable || null,
         'data-theme': props.theme || null
       })
   }
